@@ -1,0 +1,21 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20-M1'
+    id 'org.hidetake.ssh' version '2.10.1'
+    id 'dev.implario.bundler' version '3.0.3' apply false
+}
+// Настройка модулей, чтобы репозитории не повторять
+allprojects {
+    group = "me.party"
+    version = "1.0"
+    sourceCompatibility = "1.8"
+
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = sourceCompatibility
+            freeCompilerArgs = ["-Xlambdas=indy"] // use LambdaMetafactory & invokedynamic for lambdas
+        }
+    }
+}
+subprojects {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+}

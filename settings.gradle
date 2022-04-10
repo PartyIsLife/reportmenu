@@ -1,0 +1,24 @@
+rootProject.name = 'arcade-kotlin-template'
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url 'https://repo.implario.dev/public/'
+        }
+        maven {
+            url 'https://repo.implario.dev/cristalix/'
+            credentials {
+                username System.getenv("IMPLARIO_REPO_USER") ?: 'func_access'
+                password System.getenv("IMPLARIO_REPO_PASSWORD") ?: 't6dg2h/PcJuEAgMtGUyyJnN2P5VGt21ylzZLD97sScQ7EqNgKyUDYnWFARxkPJ93'
+            }
+        }
+    }
+    repositoriesMode.set RepositoriesMode.FAIL_ON_PROJECT_REPOS
+}
+
+rootProject.name = 'Reports'
+include 'node'
+include 'mod'
+
